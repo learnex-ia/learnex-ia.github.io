@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Learnex - Intercambio de Conocimiento con IA</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#1a73e8",
+                "primary-dark": "#174ea6",
+                "surface": "#faf9fd",
+                "surface-container": "#f1f3f4",
+                "on-surface": "#202124",
+                "on-surface-variant": "#5f6368",
+                "outline-variant": "#dadce0",
+              },
+              borderRadius: {
+                "xl": "12px",
+                "2xl": "16px",
+                "3xl": "24px",
+              },
+              animation: {
+                'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                'float': 'float 6s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeInUp: {
+                  '0%': { opacity: '0', transform: 'translateY(20px)' },
+                  '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                }
+              }
+            },
+          },
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf9fd; scroll-behavior: smooth; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(232, 234, 237, 1); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Custom Slider Styles */
+        .slider-container { overflow: hidden; position: relative; width: 100%; }
+        .slider-wrapper { display: flex; transition: transform 0.5s ease-in-out; }
+        .slide { min-width: 100%; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .slide img { border-radius: 20px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); max-height: 500px; width: auto; }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-x-hidden">
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-white/90 border-b border-outline-variant backdrop-blur-md fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xl">school</span>
+                </div>
+                <span class="text-xl font-bold text-primary tracking-tight">Learnex</span>
+            </div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a href="#proposito" class="text-on-surface-variant hover:text-primary font-medium transition-colors">Propósito</a>
+                <a href="#tecnologia" class="text-on-surface-variant hover:text-primary font-medium transition-colors">Tecnología AI</a>
+                <a href="#app" class="text-on-surface-variant hover:text-primary font-medium transition-colors">Vista Previa</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="text-primary font-semibold hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors">Acceder</button>
+                <button class="bg-primary text-white font-semibold px-6 py-2 rounded-full hover:bg-primary-dark transition-all shadow-md hover:shadow-lg">Registrarse (+18)</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section class="relative min-h-[85vh] flex items-center bg-gradient-to-br from-[#f8faff] to-[#e8f0fe] overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
+                <div class="animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 bg-white border border-blue-100 px-4 py-1 rounded-full text-primary text-sm font-semibold mb-6 shadow-sm">
+                        <span class="material-symbols-outlined text-sm">verified</span> Comunidad de Aprendizaje Colaborativo
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-extrabold text-on-surface leading-[1.1] mb-6">
+                        Democratizando el <span class="text-primary">Conocimiento</span> a través del Trueque.
+                    </h1>
+                    <p class="text-xl text-on-surface-variant leading-relaxed mb-8 max-w-xl">
+                        Aporta tu talento y accede a un ecosistema educativo sustentable, validado por Inteligencia Artificial y diseñado para el intercambio justo.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-primary text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-primary-dark transition-all shadow-xl hover:-translate-y-1 flex items-center gap-2">
+                            Comenzar ahora
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                        <button class="bg-white text-on-surface border border-outline-variant px-8 py-4 rounded-2xl font-bold text-lg hover:bg-surface-container transition-all flex items-center gap-2">
+                            Ver propuesta
+                            <span class="material-symbols-outlined">description</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block animate-float">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWfdp5RfrCtajdwBCYvP5gqxvV0SiXRaqcoryfptuk2SipQigVfdIoVHDBA_ihpGll-EjPWA66WSNwaBGBdzs2SBZcCBNpUP8BrQ5hMN2UynZiAMzaIjOMIkyVUOkuMKofYTo49F67mNbD1S4uD0vByOiZiDvNX2aHfzFO-sZho4rGH5tIoDm8qxdVnAHZBCmu7AF4oeqsYZHS_mIachPHk2md-LLqDO6UiIZ2UPjH1UAGRp0g0gZyn-AXt-a6H-QlWLg21uU2uw" 
+                         alt="Innovación Educativa" class="w-full drop-shadow-2xl">
+                </div>
+            </div>
+            <!-- Decorative Elements -->
+            <div class="absolute top-20 -right-20 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 -left-10 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl"></div>
+        </section>
+
+        <!-- The Problem & Solution (Bento Style) -->
+        <section id="proposito" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-on-surface mb-4">¿Por qué Learnex?</h2>
+                    <p class="text-on-surface-variant text-lg max-w-3xl mx-auto">Resolvemos la brecha económica en la educación superior y profesional mediante un modelo de reciprocidad equilibrada.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <!-- Problem Card -->
+                    <div class="md:col-span-7 glass-card p-10 rounded-3xl reveal">
+                        <div class="flex flex-col h-full justify-center">
+                            <span class="text-red-500 font-bold mb-2 flex items-center gap-2">
+                                <span class="material-symbols-outlined">warning</span> El Problema
+                            </span>
+                            <h3 class="text-3xl font-bold mb-4">El acceso al conocimiento es desigual.</h3>
+                            <p class="text-on-surface-variant text-lg leading-relaxed">
+                                Las plataformas actuales requieren pagos elevados, mientras que miles de expertos tienen habilidades valiosas desaprovechadas por falta de un espacio de intercambio justo.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Barter Card -->
+                    <div class="md:col-span-5 bg-primary p-10 rounded-3xl text-white reveal flex flex-col items-center justify-center text-center shadow-2xl">
+                        <span class="material-symbols-outlined text-6xl mb-4">handshake</span>
+                        <h3 class="text-2xl font-bold mb-2">Modelo de Trueque</h3>
+                        <p class="opacity-90">Publicas 1 curso validado ➔ Accedes a toda la comunidad. Sin costos monetarios.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Technology Section -->
+        <section id="tecnologia" class="py-24 bg-surface-container/50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <h2 class="text-4xl font-bold text-on-surface mb-6 leading-tight">Tecnología de Vanguardia para la <span class="text-primary">Calidad Educativa</span>.</h2>
+                        <p class="text-on-surface-variant text-lg mb-8">
+                            No somos solo una red social. Utilizamos IA avanzada para garantizar que cada contenido sea relevante y de alto valor para el usuario.
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-blue-100 p-2 rounded-lg text-primary">
+                                    <span class="material-symbols-outlined">neurology</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Validación Automática (NLP)</h4>
+                                    <p class="text-on-surface-variant">Clasifica y valida la pertinencia de los cursos antes de su publicación.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-blue-100 p-2 rounded-lg text-primary">
+                                    <span class="material-symbols-outlined">recommend</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Recomendación Inteligente</h4>
+                                    <p class="text-on-surface-variant">Machine Learning personalizado según tus intereses y comportamiento.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-blue-100 p-2 rounded-lg text-primary">
+                                    <span class="material-symbols-outlined">smart_toy</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Asistente LLM Local</h4>
+                                    <p class="text-on-surface-variant">Asiste en la redacción de cursos y permite búsquedas por intención semántica.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Features Grid -->
+                    <div class="grid grid-cols-2 gap-4 reveal">
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant flex flex-col items-center text-center">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">security</span>
+                            <h4 class="font-bold">Seguridad</h4>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant flex flex-col items-center text-center translate-y-8">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">database</span>
+                            <h4 class="font-bold">Minería de Datos</h4>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant flex flex-col items-center text-center">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">chat</span>
+                            <h4 class="font-bold">Módulo Social</h4>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant flex flex-col items-center text-center translate-y-8">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">notifications</span>
+                            <h4 class="font-bold">Notificaciones</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Showcase Slider -->
+        <section id="app" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Implementación Actual</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-on-surface">Explora la Interfaz Móvil</h2>
+                    <p class="text-on-surface-variant mt-4">Nuestra aplicación en Android Studio ya cuenta con una base sólida que será potenciada con nuevas funcionalidades de IA.</p>
+                </div>
+
+                <div class="slider-container max-w-4xl mx-auto reveal">
+                    <div class="slider-wrapper" id="slider">
+                        <!-- Slide 1 -->
+                        <div class="slide">
+                            <div class="flex flex-col items-center">
+                                <img src="img/img1.jpeg" alt="Screen 1">
+                                <p class="mt-4 font-medium text-on-surface-variant italic">Interfaz de Inicio - Learnex</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="slide">
+                            <div class="flex flex-col items-center">
+                                <img src="img/img2.jpeg" alt="Screen 2">
+                                <p class="mt-4 font-medium text-on-surface-variant italic">Catálogo de Cursos</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="slide">
+                            <div class="flex flex-col items-center">
+                                <img src="img/img3.jpeg" alt="Screen 3">
+                                <p class="mt-4 font-medium text-on-surface-variant italic">Detalle de Lección</p>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="slide">
+                            <div class="flex flex-col items-center">
+                                <img src="img/img4.jpeg" alt="Screen 4">
+                                <p class="mt-4 font-medium text-on-surface-variant italic">Perfil del Usuario</p>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="slide">
+                            <div class="flex flex-col items-center">
+                                <img src="img/img5.jpeg" alt="Screen 5">
+                                <p class="mt-4 font-medium text-on-surface-variant italic">Creación de Contenido</p>
+                            </div>
+                        </div>
+                        <!-- Slide 6 -->
+                        <div class="slide">
+                            <div class="flex flex-col items-center">
+                                <img src="img/img6.jpeg" alt="Screen 6">
+                                <p class="mt-4 font-medium text-on-surface-variant italic">Validación AI en Proceso</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow-lg hover:bg-white transition-all text-primary" onclick="moveSlide(-1)">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow-lg hover:bg-white transition-all text-primary" onclick="moveSlide(1)">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                    
+                    <!-- Indicators -->
+                    <div class="flex justify-center gap-2 mt-8" id="indicators">
+                        <div class="w-3 h-3 rounded-full bg-primary transition-all"></div>
+                        <div class="w-3 h-3 rounded-full bg-outline-variant transition-all"></div>
+                        <div class="w-3 h-3 rounded-full bg-outline-variant transition-all"></div>
+                        <div class="w-3 h-3 rounded-full bg-outline-variant transition-all"></div>
+                        <div class="w-3 h-3 rounded-full bg-outline-variant transition-all"></div>
+                        <div class="w-3 h-3 rounded-full bg-outline-variant transition-all"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-primary reveal">
+            <div class="max-w-4xl mx-auto px-6 text-center text-white">
+                <h2 class="text-4xl font-bold mb-6">¿Listo para democratizar tu conocimiento?</h2>
+                <p class="text-xl opacity-90 mb-10 leading-relaxed">Únete a la primera red de intercambio de conocimiento profesional impulsada por IA. Aporta un curso y desbloquea infinitas posibilidades.</p>
+                <button class="bg-white text-primary px-10 py-4 rounded-full font-extrabold text-xl hover:bg-surface-container transition-all shadow-2xl hover:scale-105">
+                    Unirse a Learnex
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-outline-variant py-16">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-xl">school</span>
+                    </div>
+                    <span class="text-xl font-bold text-primary tracking-tight">Learnex</span>
+                </div>
+                <p class="text-on-surface-variant max-w-sm mb-6">
+                    Plataforma móvil de intercambio recíproco de conocimiento con validación automática y recomendación inteligente.
+                </p>
+                <div class="flex gap-4">
+                    <span class="bg-surface-container p-2 rounded-lg text-on-surface-variant material-symbols-outlined cursor-pointer hover:text-primary transition-colors">language</span>
+                    <span class="bg-surface-container p-2 rounded-lg text-on-surface-variant material-symbols-outlined cursor-pointer hover:text-primary transition-colors">share</span>
+                    <span class="bg-surface-container p-2 rounded-lg text-on-surface-variant material-symbols-outlined cursor-pointer hover:text-primary transition-colors">mail</span>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Categorías</h4>
+                <ul class="space-y-4 text-on-surface-variant">
+                    <li class="hover:text-primary cursor-pointer transition-colors">Social</li>
+                    <li class="hover:text-primary cursor-pointer transition-colors">Educación</li>
+                    <li class="hover:text-primary cursor-pointer transition-colors">Tecnología</li>
+                    <li class="hover:text-primary cursor-pointer transition-colors">Ciencias</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Legal</h4>
+                <ul class="space-y-4 text-on-surface-variant">
+                    <li class="hover:text-primary cursor-pointer transition-colors">Términos (+18)</li>
+                    <li class="hover:text-primary cursor-pointer transition-colors">Privacidad de Datos</li>
+                    <li class="hover:text-primary cursor-pointer transition-colors">Políticas de Trueque</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-on-surface-variant">
+            <p>© 2026 Learnex Project. Todos los derechos reservados.</p>
+            <div class="flex gap-6">
+                <span>Machine Learning</span>
+                <span>NLP</span>
+                <span>LLM</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        reveals.forEach(reveal => observer.observe(reveal));
+
+        // Slider Logic
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const indicators = document.getElementById('indicators').children;
+        const totalSlides = 6;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            // Update indicators
+            Array.from(indicators).forEach((ind, i) => {
+                ind.classList.toggle('bg-primary', i === currentSlide);
+                ind.classList.toggle('bg-outline-variant', i !== currentSlide);
+                ind.classList.toggle('w-8', i === currentSlide);
+                ind.classList.toggle('w-3', i !== currentSlide);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        // Auto slide
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        // Initialize first indicator
+        updateSlider();
+    </script>
+</body>
+</html>
