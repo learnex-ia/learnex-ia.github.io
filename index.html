@@ -75,9 +75,9 @@
                 <a href="#tecnologia" class="text-on-surface-variant hover:text-primary font-medium transition-colors">Tecnología AI</a>
                 <a href="#app" class="text-on-surface-variant hover:text-primary font-medium transition-colors">Vista Previa</a>
             </div>
-            <div class="flex items-center gap-4">
-                <button class="text-primary font-semibold hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors">Acceder</button>
-                <button class="bg-primary text-white font-semibold px-6 py-2 rounded-full hover:bg-primary-dark transition-all shadow-md hover:shadow-lg">Registrarse (+18)</button>
+            <div class="flex items-center gap-2 sm:gap-4">
+                <button class="text-primary font-semibold hover:bg-primary/5 px-2 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base">Acceder</button>
+                <button class="bg-primary text-white font-semibold px-4 py-2 sm:px-6 rounded-full hover:bg-primary-dark transition-all shadow-md hover:shadow-lg text-xs sm:text-sm md:text-base whitespace-nowrap">Registrarse (+18)</button>
             </div>
         </div>
     </nav>
@@ -96,14 +96,10 @@
                     <p class="text-lg md:text-xl text-on-surface-variant leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
                         Aporta tu talento y accede a un ecosistema educativo sustentable, validado por Inteligencia Artificial y diseñado para el intercambio justo.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <button class="bg-primary text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-primary-dark transition-all shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <div class="flex justify-center lg:justify-start">
+                        <button class="bg-primary text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-primary-dark transition-all shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 w-full sm:w-auto">
                             Comenzar ahora
                             <span class="material-symbols-outlined">arrow_forward</span>
-                        </button>
-                        <button class="bg-white text-on-surface border border-outline-variant px-8 py-4 rounded-2xl font-bold text-lg hover:bg-surface-container transition-all flex items-center justify-center gap-2">
-                            Ver propuesta
-                            <span class="material-symbols-outlined">description</span>
                         </button>
                     </div>
                 </div>
@@ -126,28 +122,30 @@
         <section id="proposito" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="text-3xl lg:text-4xl font-bold text-on-surface mb-4">¿Por qué Learnex?</h2>
-                    <p class="text-on-surface-variant text-lg max-w-3xl mx-auto">Resolvemos la brecha económica en la educación superior y profesional mediante un modelo de reciprocidad equilibrada.</p>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-on-surface mb-4">Nuestra Propuesta de Valor</h2>
+                    <p class="text-on-surface-variant text-lg max-w-3xl mx-auto">Centramos nuestros esfuerzos en resolver la brecha económica en la educación profesional mediante un modelo de reciprocidad equilibrada.</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
                     <!-- Problem Card -->
-                    <div class="md:col-span-7 glass-card p-10 rounded-3xl reveal">
+                    <div class="md:col-span-12 lg:col-span-8 glass-card p-8 md:p-12 rounded-3xl reveal border-l-8 border-primary">
                         <div class="flex flex-col h-full justify-center">
-                            <span class="text-red-500 font-bold mb-2 flex items-center gap-2">
-                                <span class="material-symbols-outlined">warning</span> El Problema
+                            <span class="text-primary font-bold mb-4 flex items-center gap-2 uppercase tracking-widest text-sm">
+                                <span class="material-symbols-outlined">target</span> La problemática a resolver
                             </span>
-                            <h3 class="text-3xl font-bold mb-4">El acceso al conocimiento es desigual.</h3>
-                            <p class="text-on-surface-variant text-lg leading-relaxed">
-                                Las plataformas actuales requieren pagos elevados, mientras que miles de expertos tienen habilidades valiosas desaprovechadas por falta de un espacio de intercambio justo.
+                            <h3 class="text-3xl md:text-4xl font-bold mb-6 text-on-surface">El acceso al conocimiento profesional es desigual.</h3>
+                            <p class="text-on-surface-variant text-xl leading-relaxed">
+                                Las plataformas educativas actuales imponen barreras económicas que limitan el crecimiento personal. En Learnex, resolvemos esto permitiendo que tu capital intelectual sea la llave de acceso a una comunidad global, garantizando que cada miembro aporte valor antes de consumir.
                             </p>
                         </div>
                     </div>
                     <!-- Barter Card -->
-                    <div class="md:col-span-5 bg-primary p-10 rounded-3xl text-white reveal flex flex-col items-center justify-center text-center shadow-2xl">
-                        <span class="material-symbols-outlined text-6xl mb-4">handshake</span>
-                        <h3 class="text-2xl font-bold mb-2">Modelo de Trueque</h3>
-                        <p class="opacity-90">Publicas 1 curso validado ➔ Accedes a toda la comunidad. Sin costos monetarios.</p>
+                    <div class="md:col-span-12 lg:col-span-4 bg-primary p-10 rounded-3xl text-white reveal flex flex-col items-center justify-center text-center shadow-2xl">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-5xl">sync_alt</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Intercambio Justo</h3>
+                        <p class="opacity-90 text-lg">Publicas un curso validado por IA para obtener acceso ilimitado al catálogo completo.</p>
                     </div>
                 </div>
             </div>
@@ -219,9 +217,9 @@
         <section id="app" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16 reveal">
-                    <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Implementación Actual</span>
-                    <h2 class="text-3xl lg:text-4xl font-bold text-on-surface">Explora la Interfaz Móvil</h2>
-                    <p class="text-on-surface-variant mt-4">Nuestra aplicación en Android Studio ya cuenta con una base sólida que será potenciada con nuevas funcionalidades de IA.</p>
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Visualización del Proyecto</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-on-surface">Nueva Experiencia Learnex</h2>
+                    <p class="text-on-surface-variant mt-4 max-w-2xl mx-auto">Explora el diseño de nuestra nueva plataforma educativa, optimizada para ofrecer un ecosistema de aprendizaje colaborativo e inteligente.</p>
                 </div>
 
                 <div class="slider-container max-w-4xl mx-auto reveal">
