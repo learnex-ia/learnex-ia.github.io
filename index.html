@@ -57,25 +57,6 @@
         .slider-wrapper { display: flex; transition: transform 0.5s ease-in-out; }
         .slide { min-width: 100%; display: flex; justify-content: center; align-items: center; padding: 20px; }
         .slide img { border-radius: 20px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); max-height: 500px; width: auto; }
-        
-        /* Floating Particles */
-        @keyframes float-particle {
-            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.1; }
-            90% { opacity: 0.1; }
-            100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)); opacity: 0; }
-        }
-        .particle {
-            position: absolute;
-            color: #1a73e8; /* Soft primary color */
-            font-weight: 800;
-            font-family: monospace;
-            user-select: none;
-            pointer-events: none;
-            animation: float-particle var(--duration) linear infinite;
-            animation-delay: var(--delay);
-            z-index: 0;
-        }
     </style>
 </head>
 <body class="text-on-surface antialiased overflow-x-hidden">
@@ -106,11 +87,8 @@
     <main class="pt-16">
         <!-- Hero Section -->
         <section class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#f8faff] to-[#e8f0fe] overflow-hidden">
-            <!-- Background Particles -->
-            <div id="particles-container" class="absolute inset-0 z-0 overflow-hidden pointer-events-none"></div>
-            
             <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
-                <div class="animate-fade-in-up text-center lg:text-left relative z-10">
+                <div class="animate-fade-in-up text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 bg-white border border-blue-100 px-4 py-1 rounded-full text-primary text-sm font-semibold mb-6 shadow-sm">
                         <span class="material-symbols-outlined text-sm">verified</span> Comunidad +18
                     </div>
@@ -550,49 +528,6 @@
 
         // Initialize first indicator
         updateSlider();
-
-        // Background Particles Effect
-        function createParticles() {
-            const container = document.getElementById('particles-container');
-            if(!container) return;
-            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</>{}[]()*&^%$#@!";
-            const numParticles = 65; // Number of floating elements
-            
-            for (let i = 0; i < numParticles; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.innerText = letters.charAt(Math.floor(Math.random() * letters.length));
-                
-                // Random starting position
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Random movement distances (all directions)
-                const tx = (Math.random() - 0.5) * 600; // -300px to 300px
-                const ty = (Math.random() - 0.5) * 600;
-                const rot = (Math.random() - 0.5) * 720;
-                
-                particle.style.setProperty('--tx', `${tx}px`);
-                particle.style.setProperty('--ty', `${ty}px`);
-                particle.style.setProperty('--rot', `${rot}deg`);
-                
-                // Random duration and delay for organic feel
-                const duration = 15 + Math.random() * 25; // 15s to 40s
-                const delay = -Math.random() * 40; // Start at different phases
-                
-                particle.style.setProperty('--duration', `${duration}s`);
-                particle.style.setProperty('--delay', `${delay}s`);
-                
-                // Random size
-                const size = 0.5 + Math.random() * 3.5; // 0.5rem to 4rem
-                particle.style.fontSize = `${size}rem`;
-                
-                container.appendChild(particle);
-            }
-        }
-        
-        // Init particles
-        document.addEventListener('DOMContentLoaded', createParticles);
     </script>
 </body>
 </html>
